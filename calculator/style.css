@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    display:flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #FA8BFF;
+background-image: linear-gradient(250deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+
+}
+.calculator{
+border:1px solid;
+border-radius: 18px;
+padding: 20px;
+box-shadow: 0 0 40px 5px #121112;
+background: transparent;
+}
+input{
+    border: none;
+    background:transparent;
+    border-bottom: 1.6px solid #fff;
+    margin-bottom: 5px;
+    text-align: right;
+    padding: 10px;
+    font-size: 19px;
+    cursor: pointer;
+    pointer-events: none;
+}
+::placeholder{
+    color:#000;
+
+}
+button{
+    width: 40px;
+    height: 40px;
+    border:none;
+    outline:none;
+    margin: 10px;
+border-radius: 50%;
+padding: 5px;
+font-size: 16px;
+background: transparent;
+box-shadow: 0px 0px 30px #040004;
+text-align: center;
+cursor: pointer;
+}
+.eq
+{
+   font-size: 20px;
+   color: #fff;
+   width: 100px;
+   border-radius: 15px;
+   box-shadow: 2px 1px 10px #ffffff;
+   background: #1500ff;
+}
+.operator{
+    color: #fff;
+    box-shadow: 1px 1px 10px #ffffff;
+    background: #ff00ea;
+}
+.clean,.del{
+    color: #fff;
+    box-shadow: 1px 1px 30px 5px #000000;
+    background: #ff2200;
+}
