@@ -1,0 +1,55 @@
+<!-- a simple javascript calculator 
+@coding_eith_mayavi0 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator by coding with mayavi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="screen">
+        <input
+          type="text"
+          name=""
+          placeholder="0"
+          id="outbox"
+          inputmode="numeric"
+        />
+      </div>
+      <div class="button">
+        <button class="clean">AC</button>
+        <button class="del">DEL</button>
+        <button class="operator" onclick="btclick('%')">%</button>
+        <button class="operator" onclick="btclick('-')">-</button>
+      </div>
+      <div class="button">
+        <button onclick="btclick(7)">7</button>
+        <button onclick="btclick(8)">8</button>
+        <button onclick="btclick(9)">9</button>
+        <button class="operator" onclick="btclick('*')">x</button>
+      </div>
+      <div class="button">
+        <button onclick="btclick(4)">4</button>
+        <button onclick="btclick(5)">5</button>
+        <button onclick="btclick(6)">6</button>
+        <button class="operator" onclick="btclick('/')">/</button>
+      </div>
+      <div class="button">
+        <button onclick="btclick(1)">1</button>
+        <button onclick="btclick(2)">2</button>
+        <button onclick="btclick(3)">3</button>
+        <button class="operator" onclick="btclick('+')">+</button>
+      </div>
+      <div class="button">
+        <button onclick="btclick(0)">0</button>
+        <button class="operator" onclick="btclick('.')">.</button>
+        <button class="eq" onclick="eqbtn('=')">=</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
