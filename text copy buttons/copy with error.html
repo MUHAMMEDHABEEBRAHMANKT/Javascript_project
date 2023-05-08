@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy text into clip bord</title>
+    <!-- creat script -->
+    <script>
+        let copy = (text)=>{
+           if(document.getElementById("text").value === "")//check input fild is empty
+           {
+            document.querySelector("p").classList.add("error");
+           }
+
+        //     remove error mesage 
+        document.getElementById("text").onkeyup=()=>{
+            document.querySelector("p").classList.remove("error");
+        }
+            document.getElementById("text").select();
+            document.execCommand("copy");
+            // working prpery
+            //lets add copied information
+
+            document.querySelector("span").style.display="none";
+            document.querySelector(".box").classList.add("active");
+
+            // lets remove copied info
+
+            window.getSelection().removeAllRanges();
+
+
+            setTimeout(()=>{
+                document.querySelector("span").style.display="block";
+                document.querySelector(".box").classList.remove("active");
+            },1000)
+            //the info remove after 1.5 seconds
+        }
+    </script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }body{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height:100vh;
+        text-align: center;
+        background: rgb(136, 17, 67);
+
+    }
+    .box{
+        width: 330px;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        /* position: absolute; */
+        /* button center  */
+        
+    }
+    .box textarea{
+        outline: none;
+        border: 2px solid #e813a1;
+        min-height: 120px;
+        width: 100%;
+        position: relative;
+        padding: 5px;
+        font-size: 15px;
+        resize: none;
+    }
+    ::placeholder{
+        color: #000;
+        text-transform: capitalize;
+    }
+    p{
+        color: red;
+        padding: 5px 5px;
+        text-transform: capitalize;
+        font-size: 15px;
+        display: none;
+    }
+    p.error{
+        display: block;
+    }
+   
+    .box #btn{
+        padding:5px 5px;
+        /* position: absolute; */
+        color:#fff ;
+        background: #1328E8;
+        outline: none;
+        /* right: 20px;
+        top: 20px; */
+        border:none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .box #btn::before{
+        content: "copied ✔";
+        font-weight: 600;
+        color: #fffcca;
+        display: none;
+    }
+    .box.active #btn::before{
+        display: block;
+    }
+</style>
+<body>
+    <div class="box">
+        <textarea id="text" placeholder="enter hear..."></textarea>
+      <!-- lets add  a error message -->
+      <p>area is empty. plz enter text</p>
+        <button id="btn" onclick="copy('text')"> <span>copy</span></button>
+    </div>
+</body>
+</html>

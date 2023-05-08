@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="area" placeholder=" enter hear"></textarea>
+        <button id="btn" onclick="copy('text')"><span>copy</span></button>
+    </div>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            background-color: darksalmon;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .box{
+            position: absolute;
+            background-color: #fff;
+            width: 330px;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+        .box textarea{
+            resize: none;
+            min-height: 130px;
+            width: 100%;
+            border: 2px solid #1328e8;
+            padding: 5px;
+            position: relative;
+            background-color: transparent;
+            outline: none;
+        }
+        .box #btn{
+            padding: 0 5px;
+            border-radius: 6px;
+            outline: none;
+            border: 2px solid #1328e8;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 999;
+            background-color: darksalmon;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+        .box #btn::before{
+            content: "copied";
+            display: none;
+
+        }
+        .box.active #btn::before{
+            display: block;
+        }
+
+    </style>
+    <script>
+       let copy=(text)=>{
+        document.getElementById("area").select();
+        document.execCommand("copy");
+        // youcan stopr hear don.t need modification
+        document.querySelector("span").style.display="none";
+        document.querySelector(".box").classList.add("active");
+        window.getSelection().removeAllRanges();
+        setTimeout(() => {
+            document.querySelector("span").style.display="block";
+        document.querySelector(".box").classList.remove("active");
+        }, 1500);
+        }
+    </script>
+</body>
+</html>
