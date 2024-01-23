@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="animatedTitle">Animated Title</title>
+  <style>
+    /* Add this to your existing CSS code */
+    head {
+      transition: background-color 0.3s ease;
+    }
+
+    head:hover {
+      background-color: #555; /* Change the color to the one you prefer */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your HTML content -->
+
+  <script>
+    // Add this JavaScript code
+    document.addEventListener('DOMContentLoaded', function() {
+      const titleElement = document.getElementById('animatedTitle');
+      const originalTitle = titleElement.textContent;
+
+      function animateTitle() {
+        let index = 1;
+        const interval = setInterval(function() {
+          titleElement.textContent = originalTitle.substring(0,index);
+          index++;
+          if (index >=originalTitle.length) {
+            clearInterval(interval);
+            setTimeout(animateTitle, 1000); // Wait for 1 second before starting again
+          }
+        }, 300); // Adjust the typing speed (milliseconds)
+      }
+
+      // Start typing animation immediately
+      animateTitle();
+    });
+  </script>
+
+</body>
+</html>
